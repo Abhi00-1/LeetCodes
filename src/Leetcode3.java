@@ -45,8 +45,10 @@ public class Leetcode3 {
                     end=mid-1;
 
                 }
-                else
+                else if(target<arr[mid]){
                     start=mid+1;
+                }
+
 
             }
             return arr[start];

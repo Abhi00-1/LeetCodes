@@ -1,4 +1,6 @@
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TwoSum {
     public static void main(String[] args) {
@@ -13,6 +15,19 @@ public class TwoSum {
             if(sum==target) return new int[]{arr[s],arr[e]};
             else if(sum<target) s++;
             else e--;
+        }
+        return new int[]{-1,-1};
+    }
+
+    public static int[] twoSum2(int[] arr,int target){
+        Map<Integer,Integer> m=new HashMap<>();
+        for (int i = 0; i < arr.length; i++) {
+            int complement=target-arr[i];
+            if(m.containsKey(complement)){
+                return new int[]{m.get(complement),i};
+            }
+            m.put(arr[i],i);
+
         }
         return new int[]{-1,-1};
     }
